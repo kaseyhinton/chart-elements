@@ -57,15 +57,18 @@ Often, it is used to show trend data, and the comparison of two data sets.
     <style include="chart-styles"></style>
 
     <div>
-      <canvas id="canvas"></canvas>
+      <canvas width="100%" height="100%" id="canvas"></canvas>
     </div>
 
   </template>
 
   <script>
-    class ChartLine extends ChartBehaviors.ResizeBehavior(ChartBehaviors.ContextBehavior(ChartBehaviors.ChartPropertyBehavior(Polymer.mixinBehaviors([Polymer.IronResizableBehavior], Polymer.Element)))) {
+    class ChartLine extends ChartBehaviors.ResizeBehavior(ChartBehaviors.ContextBehavior(ChartBehaviors.ChartPropertyBehavior(
+      Polymer.mixinBehaviors([Polymer.IronResizableBehavior], Polymer.Element)))) {
 
-      static get is() { return 'chart-line'; }
+      static get is() {
+        return 'chart-line';
+      }
 
       ready() {
         super.ready();
@@ -75,5 +78,6 @@ Often, it is used to show trend data, and the comparison of two data sets.
     };
 
     window.customElements.define(ChartLine.is, ChartLine);
+
   </script>
 </dom-module>

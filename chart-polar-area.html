@@ -50,15 +50,18 @@ This type of chart is often useful when we want to show a comparison data simila
     <style include="chart-styles"></style>
 
     <div>
-      <canvas id="canvas"></canvas>
+      <canvas width="100%" height="100%" id="canvas"></canvas>
     </div>
 
   </template>
 
   <script>
-    class ChartPolarArea extends ChartBehaviors.ResizeBehavior(ChartBehaviors.ContextBehavior(ChartBehaviors.ChartPropertyBehavior(Polymer.mixinBehaviors([Polymer.IronResizableBehavior], Polymer.Element)))) {
+    class ChartPolarArea extends ChartBehaviors.ResizeBehavior(ChartBehaviors.ContextBehavior(ChartBehaviors.ChartPropertyBehavior(
+      Polymer.mixinBehaviors([Polymer.IronResizableBehavior], Polymer.Element)))) {
 
-      static get is() { return 'chart-polar-area'; }
+      static get is() {
+        return 'chart-polar-area';
+      }
 
       ready() {
         super.ready();
@@ -68,5 +71,6 @@ This type of chart is often useful when we want to show a comparison data simila
     };
 
     window.customElements.define(ChartPolarArea.is, ChartPolarArea);
+
   </script>
 </dom-module>

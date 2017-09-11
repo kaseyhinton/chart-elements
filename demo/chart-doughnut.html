@@ -10,109 +10,110 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>chart-elements Demo</title>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../chart-elements.html">
-    <link rel="stylesheet" href="demo.css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>chart-elements Demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../chart-elements.html">
+  <link rel="stylesheet" href="demo.css">
+</head>
 
-  <body unresolved>
+<body unresolved>
 
-    <dom-bind>
-      <template>
+  <dom-bind>
+    <template>
 
-        <chart-doughnut id="chart" class="square-chart" data="[[data]]"></chart-doughnut>
+      <chart-doughnut id="chart" class="square-chart" data="[[data]]"></chart-doughnut>
 
-        <div class="controls">
+      <div class="controls">
 
-          <div class="control-group">
+        <div class="control-group">
 
-            <label>
+          <label>
               Value
               <input id="newValue" type="text" value="200">
             </label>
 
-            <label>
+          <label>
               Color
               <input id="newColor" type="text" value="#949FB1">
             </label>
 
-            <label>
+          <label>
               Highlight
               <input id="newHighlight" type="text" value="#A8B3C5">
             </label>
 
-            <label>
+          <label>
               Label
               <input id="newLabel" type="text" value="Grey">
             </label>
 
-            <button type="button" name="button" on-tap="addData">Add data</button>
+          <button type="button" name="button" on-tap="addData">Add data</button>
 
-          </div>
+        </div>
 
-          <div class="control-group">
+        <div class="control-group">
 
-            <label>
+          <label>
               Width
               <input id="newWidth" type="text" value="150px">
             </label>
 
-            <label>
+          <label>
               Height
               <input id="newHeight" type="text" value="150px">
             </label>
 
-            <button type="button" name="button" on-tap="resize">Resize</button>
-
-          </div>
+          <button type="button" name="button" on-tap="resize">Resize</button>
 
         </div>
 
-      </template>
-    </dom-bind>
+      </div>
 
-    <script>
-      var scope = document.querySelector('dom-bind');
+    </template>
+  </dom-bind>
 
-      scope.data = {
-		labels: [
-			"Red",
-			"Green",
-			"Yellow"
-		],
-		datasets: [
-        {
-            data: [300, 50, 100],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ]
-        }]
-	  };
+  <script>
+    var scope = document.querySelector('dom-bind');
 
-      scope.addData = function() {
-        this.push('data.labels', this.$.newLabel.value);
-        this.push('data.datasets.0.hoverBackgroundColor', this.$.newHighlight.value);
-        this.push('data.datasets.0.backgroundColor', this.$.newColor.value);
-        this.push('data.datasets.0.data', this.$.newValue.value);
-      };
+    scope.data = {
+      labels: [
+        "Red",
+        "Green",
+        "Yellow"
+      ],
+      datasets: [{
+        data: [300, 50, 100],
+        backgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ],
+        hoverBackgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ]
+      }]
+    };
 
-      scope.resize = function() {
-        this.$.chart.style.width = this.$.newWidth.value;
-        this.$.chart.style.height = this.$.newHeight.value;
-        this.$.chart.resize();
-      };
-    </script>
+    scope.addData = function () {
+      this.push('data.labels', this.$.newLabel.value);
+      this.push('data.datasets.0.hoverBackgroundColor', this.$.newHighlight.value);
+      this.push('data.datasets.0.backgroundColor', this.$.newColor.value);
+      this.push('data.datasets.0.data', this.$.newValue.value);
+    };
 
-  </body>
+    scope.resize = function () {
+      this.$.chart.style.width = this.$.newWidth.value;
+      this.$.chart.style.height = this.$.newHeight.value;
+      this.$.chart.resize();
+    };
+
+  </script>
+
+</body>
+
 </html>

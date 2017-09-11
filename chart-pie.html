@@ -55,15 +55,18 @@ They are also registered under two aliases in the Chart core. Other than their d
     <style include="chart-styles"></style>
 
     <div>
-      <canvas id="canvas"></canvas>
+      <canvas width="100%" height="100%" id="canvas"></canvas>
     </div>
 
   </template>
 
   <script>
-    class ChartPie extends ChartBehaviors.ResizeBehavior(ChartBehaviors.ContextBehavior(ChartBehaviors.ChartPropertyBehavior(Polymer.mixinBehaviors([Polymer.IronResizableBehavior], Polymer.Element)))) {
+    class ChartPie extends ChartBehaviors.ResizeBehavior(ChartBehaviors.ContextBehavior(ChartBehaviors.ChartPropertyBehavior(
+      Polymer.mixinBehaviors([Polymer.IronResizableBehavior], Polymer.Element)))) {
 
-      static get is() { return 'chart-pie'; }
+      static get is() {
+        return 'chart-pie';
+      }
 
       ready() {
         super.ready();
@@ -73,6 +76,7 @@ They are also registered under two aliases in the Chart core. Other than their d
     };
 
     window.customElements.define(ChartPie.is, ChartPie);
+
   </script>
 
 </dom-module>
